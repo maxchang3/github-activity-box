@@ -3,7 +3,7 @@
   "name": "github-activity-box",
   "version": "0.0.1",
   "description": "⚡️📌️ Update a gist to contain your recent activity",
-  "author": "Jason Etcovitch <jasonetco@gmail.com>",
+  "author": "Jason Etcovitch <jasonetco@gmail.com>, Max Chang <https://github.com/maxchang3>",
   "license": "ISC",
   "scripts": {
     "test": "vitest",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JasonEtco/activity-box.git"
+    "url": "https://github.com/maxchang3/github-activity-box.git"
   },
   "dependencies": {
     "actions-toolkit": "^6.0.1",

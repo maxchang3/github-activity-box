@@ -40,6 +40,11 @@ const events = [
         },
         payload: { action: 'opened', pull_request: { number: 3 } },
     },
+    {
+        type: 'PullRequestEvent',
+        repo: { name: 'clippy/take-over-github' },
+        payload: { action: 'opened', pull_request: { number: 4 } },
+    },
 ]
 
 const mockedUpdate = vi.fn()

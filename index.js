@@ -34,27 +34,40 @@ Toolkit.run(
 
         // Get the user's public events
         tools.log.debug(`Getting activity for ${GH_USERNAME}`)
-        const events = await tools.github.activity.listPublicEventsForUser({
-            username: GH_USERNAME,
-            per_page: 100,
-        })
+        const { data: events } =
+            await tools.github.activity.listPublicEventsForUser({
+                username: GH_USERNAME,
+                per_page: 100,
+            })
         tools.log.debug(
-            `Activity for ${GH_USERNAME}, ${events.data.length} events found.`
+            `Activity for ${GH_USERNAME}, ${events.length} events found.`
         )
 
-        const content = events.data
-            // Filter out any boring activity
-            .filter((event) =>
-                Object.prototype.hasOwnProperty.call(serializers, event.type)
-            )
-            // Filter out any closed PRs that are not merged
-            .filter((event) => {
-                if (event.type !== 'PullRequestEvent') return true
-                return (
-                    event.payload.action !== 'closed' ||
-                    event.payload.pull_request.merged
-                )
-            })      
+        const processedEvents = []
+        const prIndex = new Map()
+
+        for (const event of events) {
+            // Ignore events that are not in the serializer
+            if (!Object.hasOwn(serializers, event.type)) continue
+            //  Exclude closed unmerged PRs
+            if (event.type === 'PullRequestEvent') {
+                const { action, pull_request } = event.payload
+                if (action === 'closed' && !pull_request.merged) continue
+            }
+            // Consolidate duplicate PR events, retaining only the latest one
+            if (event.type !== 'PullRequestEvent') {
+                processedEvents.push(event)
+            } else {
+                const prNumber = event.payload.pull_request.number
+                if (prIndex.has(prNumber)) {
+                    processedEvents[prIndex.get(prNumber)] = event
+                } else {
+                    prIndex.set(prNumber, processedEvents.push(event) - 1)
+                }
+            }
+        }
+
+        const content = processedEvents
             // We only have five lines to work with
             .slice(0, MAX_LINES)
             // Call the serializer to construct a string

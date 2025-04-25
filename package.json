@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "test": "jest --coverage",
-    "format": "prettier --write ./index.js"
+    "lint": "biome check",
+    "lint:fix": "biome check --write ."
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,13 @@
     "gist-box": "^0.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@maxchang/biome-config": "^0.0.4",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "nock": "^12.0.3"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/tests/setup.js"
-    ]
+    "setupFiles": ["<rootDir>/tests/setup.js"]
   }
 }

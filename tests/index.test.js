@@ -15,6 +15,11 @@ const events = [
     {
         type: 'PullRequestEvent',
         repo: { name: 'clippy/take-over-github' },
+        payload: { action: 'opened', pull_request: { number: 2 } },
+    },
+    {
+        type: 'PullRequestEvent',
+        repo: { name: 'clippy/take-over-github' },
         payload: {
             action: 'closed',
             pull_request: { number: 2, merged: true },

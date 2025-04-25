@@ -47,6 +47,14 @@ Toolkit.run(
             .filter((event) =>
                 Object.prototype.hasOwnProperty.call(serializers, event.type)
             )
+            // Filter out any closed PRs that are not merged
+            .filter((event) => {
+                if (event.type !== 'PullRequestEvent') return true
+                return (
+                    event.payload.action !== 'closed' ||
+                    event.payload.pull_request.merged
+                )
+            })      
             // We only have five lines to work with
             .slice(0, MAX_LINES)
             // Call the serializer to construct a string

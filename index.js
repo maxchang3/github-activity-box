@@ -66,7 +66,7 @@ Toolkit.run(
         }
     },
     {
-        event: 'schedule',
+        event: ['schedule', 'push', 'workflow_dispatch'],
         secrets: ['GITHUB_TOKEN', 'GH_PAT', 'GH_USERNAME', 'GIST_ID'],
     }
 )

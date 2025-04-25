@@ -40,7 +40,7 @@ Fork of [activity-box](https://github.com/JasonEtco/activity-box) with some cust
            name: Install pnpm
            id: pnpm-install
            with:
-             version: 9
+             version: 10
              run_install: true
 
          - name: Setup node
@@ -50,7 +50,7 @@ Fork of [activity-box](https://github.com/JasonEtco/activity-box) with some cust
              cache: pnpm
 
          - name: Update
-           run: pnpm dlx github-activity-box@0
+           run: pnpx github-activity-box@0
            env:
              GH_PAT: ${{ secrets.GH_PAT }}
              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

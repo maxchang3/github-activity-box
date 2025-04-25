@@ -50,7 +50,7 @@ Fork of [activity-box](https://github.com/JasonEtco/activity-box) with some cust
              cache: pnpm
 
          - name: Update
-           run: pnpm dlx github-activity-box
+           run: pnpm dlx github-activity-box@0
            env:
              GH_PAT: ${{ secrets.GH_PAT }}
              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

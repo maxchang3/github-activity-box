@@ -1,12 +1,15 @@
 <p align="center">
   <img width="400" src="https://user-images.githubusercontent.com/10660468/54499151-062f8900-48e5-11e9-82c9-767d39c9cbbe.png">
-  <h3 align="center">activity-box</h3>
+  <h3 align="center">github-activity-box</h3>
   <p align="center">⚡️📌 Update a pinned gist to contain the latest activity of a user</p>
 </p>
 
-<p align="center"><a href="https://github.com/JasonEtco/activity-box"><img alt="GitHub Actions status" src="https://github.com/JasonEtco/activity-box/workflows/Node%20CI/badge.svg"> <a href="https://codecov.io/gh/JasonEtco/activity-box/"><img src="https://badgen.now.sh/codecov/c/github/JasonEtco/activity-box" alt="Codecov"></a></p>
-
 ---
+
+Fork of [activity-box](https://github.com/JasonEtco/activity-box) with some customizations:
+- Published to `npm`, Added binary for use with npx or pnpx
+- Add allowed events in Toolkit.run.
+- Update deps, remove unused deps
 
 ## Setup
 
@@ -19,44 +22,44 @@
 
 ### Project setup
 
-1. [Create a template repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) by clicking [here](https://github.com/JasonEtco/activity-box/generate). Alternatively, you can click the _Use this template_ button:
+1. Create a `.github/workflows/activity-box.yml` file with a workflow like this:
+   ```yml
+   name: Activity Box
+   on:
+     workflow_dispatch:
+     schedule:
+       - cron: '*/10 * * * *'
+   jobs:
+     language-box:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v4
 
-| <img alt="Screenshot of the GitHub repository UI, with the Use this template button highlighted" src="assets/use-this-template.png" width="600" /> |
-| --- |
+         - uses: pnpm/action-setup@v4
+           name: Install pnpm
+           id: pnpm-install
+           with:
+             version: 9
+             run_install: true
 
-Name your repository and click _Create repository from template_.
+         - name: Setup node
+           uses: actions/setup-node@v4
+           with:
+             node-version: 20
+             cache: pnpm
 
-| <img alt="Screenshot of the GitHub repository creation UI" src="assets/create-repository-from-template.png" width="500" /> |
-| --- |
-
-2. Create a `.github/workflows/activity-box.yml` file with a workflow like this:
-
-```yml
-name: Activity Box
-
-on:
-  schedule:
-    - cron: '*/10 * * * *'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: JasonEtco/activity-box@master
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_USERNAME: JasonEtco
-          GIST_ID: 123abc
-```
-
-3. [Create a secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) 🔑 by going to **GitHub repo > Settings > Secrets > New secret** with the following:
+         - name: Update
+           run: pnpm dlx github-activity-box
+           env:
+             GH_PAT: ${{ secrets.GH_PAT }}
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             GH_USERNAME: maxchang3
+             GIST_ID: 123abc
+   ```
+2. [Create a secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) 🔑 by going to **GitHub repo > Settings > Secrets > New secret** with the following:
 - Name: `GH_PAT`.
 - Value: The token with the `gist` scope generated previously.
-
-4. 💰 Profit
 
 ### Environment variables & secrets
 
@@ -66,4 +69,4 @@ jobs:
 
 ---
 
-_Inspired by [matchai/bird-box](https://github.com/matchai/bird-box)_
+_Inspired by [matchai/bird-box](https://github.com/matchai/bird-box) and [JasonEtco/activity-box](https://github.com/JasonEtco/activity-box)_

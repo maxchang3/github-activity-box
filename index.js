@@ -44,7 +44,7 @@ Toolkit.run(
         )
 
         const processedEvents = []
-        const prIndex = new Map()
+        const pr = new Set()
 
         for (const event of events) {
             // Ignore events that are not in the serializer
@@ -54,16 +54,15 @@ Toolkit.run(
                 const { action, pull_request } = event.payload
                 if (action === 'closed' && !pull_request.merged) continue
             }
-            // Consolidate duplicate PR events, retaining only the latest one
             if (event.type !== 'PullRequestEvent') {
                 processedEvents.push(event)
-            } else {
-                const prNumber = event.payload.pull_request.number
-                if (prIndex.has(prNumber)) {
-                    processedEvents[prIndex.get(prNumber)] = event
-                } else {
-                    prIndex.set(prNumber, processedEvents.push(event) - 1)
-                }
+                continue
+            }
+            // Consolidate duplicate PR events, retaining only the latest one
+            const prNumber = event.payload.pull_request.number
+            if (!pr.has(prNumber)) {
+                pr.add(prNumber)
+                processedEvents.push(event)
             }
         }
 

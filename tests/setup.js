@@ -5,4 +5,4 @@ vi.stubEnv('GH_USERNAME', 'clippy')
 vi.stubEnv('GIST_ID', '456def')
 vi.stubEnv('GITHUB_TOKEN', '123abcd')
 
-vi.stubGlobal('actions-toolkit',)
+vi.stubGlobal('actions-toolkit')

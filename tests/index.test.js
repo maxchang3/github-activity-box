@@ -45,7 +45,7 @@ const events = [
         repo: { name: 'clippy/take-over-github' },
         payload: { action: 'opened', pull_request: { number: 4 } },
     },
-]
+].toReversed()
 
 const mockedUpdate = vi.fn()
 

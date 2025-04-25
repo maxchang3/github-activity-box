@@ -9,6 +9,11 @@
   "bin": {
     "github-lang-box": "index.js"
   },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "vitest",
     "test:coverage": "vitest --coverage",

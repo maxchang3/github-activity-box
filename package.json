@@ -5,6 +5,10 @@
   "description": "⚡️📌️ Update a gist to contain your recent activity",
   "author": "Jason Etcovitch <jasonetco@gmail.com>, Max Chang <https://github.com/maxchang3>",
   "license": "ISC",
+  "main": "index.js",
+  "bin": {
+    "github-lang-box": "index.js"
+  },
   "scripts": {
     "test": "vitest",
     "test:coverage": "vitest --coverage",

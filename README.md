@@ -10,8 +10,8 @@ This is a fork of [activity-box](https://github.com/JasonEtco/activity-box) with
 
 - Published to npm: Added a binary for seamless usage with `npx` or `pnpx`.
 - Preprocess events following the rules below:
-  - [x] Exclude closed unmerged pull requests and update snapshots accordingly.
-  - [ ] Consolidate duplicate pull request events, retaining only the latest one.
+  - [x] Exclude closed unmerged PRs.
+  - [x] Consolidate duplicate PR events, retaining only the latest one.
 - Extends allowed events in `Toolkit.run`.
 - Update the dependencies, replace with some new ones, and remove unused ones.
 

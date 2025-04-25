@@ -1,9 +1,0 @@
-name: ActivityBox
-description: Update a pinned gist to contain the latest activity of a user
-author: JasonEtco
-branding:
-  color: yellow
-  icon: activity
-runs:
-  using: docker
-  image: Dockerfile

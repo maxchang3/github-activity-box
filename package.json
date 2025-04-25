@@ -20,14 +20,7 @@
   "devDependencies": {
     "husky": "^4.2.5",
     "jest": "^26.0.1",
-    "nock": "^12.0.3",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "nock": "^12.0.3"
   },
   "jest": {
     "setupFiles": [

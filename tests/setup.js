@@ -1,6 +1,8 @@
-Object.assign(process.env, {
-    GH_PAT: '123abc',
-    GH_USERNAME: 'clippy',
-    GIST_ID: '456def',
-    GITHUB_TOKEN: '123abcd',
-})
+import { vi } from 'vitest'
+
+vi.stubEnv('GH_PAT', '123abc')
+vi.stubEnv('GH_USERNAME', 'clippy')
+vi.stubEnv('GIST_ID', '456def')
+vi.stubEnv('GITHUB_TOKEN', '123abcd')
+
+vi.stubGlobal('actions-toolkit',)

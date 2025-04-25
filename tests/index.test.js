@@ -1,8 +1,5 @@
-const { Toolkit } = require('actions-toolkit')
-const nock = require('nock')
-const { GistBox } = require('gist-box')
-
-jest.mock('gist-box')
+import { Toolkit } from 'actions-toolkit'
+import { beforeEach, expect, it, vi } from 'vitest'
 
 const events = [
     {
@@ -40,47 +37,70 @@ const events = [
     },
 ]
 
+const mockedUpdate = vi.fn()
+
+vi.mock('gist-box', async (importOriginal) => {
+    const actual = await importOriginal()
+    return {
+        ...actual,
+        GistBox: vi.fn().mockImplementation(() => ({
+            update: mockedUpdate,
+        })),
+    }
+})
+
+vi.mock('actions-toolkit', async (importOriginal) => {
+    const actual = await importOriginal()
+    return {
+        ...actual,
+        Toolkit: vi.fn().mockImplementation(() => ({
+            exit: {
+                success: vi.fn(),
+                failure: vi.fn(),
+            },
+            log: {
+                debug: vi.fn(),
+                info: vi.fn(),
+                warn: vi.fn(),
+                fatal: vi.fn(),
+            },
+            github: {
+                activity: {
+                    listPublicEventsForUser: () => ({
+                        data: events,
+                    }),
+                },
+            },
+        })),
+    }
+})
+
 describe('activity-box', () => {
-    let action, tools
+    /** @type {Parameters<typeof Toolkit['run']>[]} */
+    let action
+    /** @type {Toolkit} */
+    let tools
 
-    beforeEach(() => {
-        GistBox.prototype.update = jest.fn()
-
+    beforeEach(async () => {
         Toolkit.run = (fn) => {
             action = fn
         }
 
-        require('..')
+        await import('../index.js')
 
-        nock('https://api.github.com')
-            // Get the user's recent activity
-            .get('/users/clippy/events/public?per_page=100')
-            .reply(200, events)
+        tools = new Toolkit()
 
-        tools = new Toolkit({
-            logger: {
-                info: jest.fn(),
-                success: jest.fn(),
-                warn: jest.fn(),
-                fatal: jest.fn(),
-                debug: jest.fn(),
-            },
-        })
-
-        tools.exit = {
-            success: jest.fn(),
-            failure: jest.fn(),
-        }
+        mockedUpdate.mockReset()
     })
 
     it('updates the Gist with the expected string', async () => {
         await action(tools)
-        expect(GistBox.prototype.update).toHaveBeenCalled()
-        expect(GistBox.prototype.update.mock.calls[0][0]).toMatchSnapshot()
+        expect(mockedUpdate).toHaveBeenCalled()
+        expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
     })
 
     it('handles failure to update the Gist', async () => {
-        GistBox.prototype.update.mockImplementationOnce(() => {
+        mockedUpdate.mockImplementationOnce(() => {
             throw new Error('404')
         })
 

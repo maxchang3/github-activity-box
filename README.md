@@ -10,7 +10,7 @@ This is a fork of [activity-box](https://github.com/JasonEtco/activity-box) with
 
 - Published to npm: Added a binary for seamless usage with `npx` or `pnpx`.
 - Preprocess events following the rules below:
-  - [x] Exclude closed unmerged PRs.
+  - [x] Exclude PRs that are closed but not merged.
   - [x] Consolidate duplicate PR events, retaining only the latest one.
 - Extends allowed events in `Toolkit.run`.
 - Update the dependencies, replace with some new ones, and remove unused ones.
@@ -73,4 +73,4 @@ This is a fork of [activity-box](https://github.com/JasonEtco/activity-box) with
 
 ---
 
-_Inspired by [matchai/bird-box](https://github.com/matchai/bird-box) and [JasonEtco/activity-box](https://github.com/JasonEtco/activity-box)_
+_Inspired by [matchai/bird-box](https://github.com/matchai/bird-box) and originally based on [JasonEtco/activity-box](https://github.com/JasonEtco/activity-box)_

@@ -24,7 +24,7 @@
 
 ## 🚀 Usage
 
-### CLI Usage
+### Use as a CLI
 
 ```bash
 # Run directly with npx/pnpx

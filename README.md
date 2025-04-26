@@ -10,7 +10,7 @@
 # GitHub Activity Box
 
 [![npm](https://img.shields.io/npm/v/github-activity-box.svg?style=flat-square)](https://www.npmjs.com/package/github-activity-box)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/maxchang3/github-activity-box/ci.yml?style=flat-square)](https://github.com/maxchang3/github-activity-box/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/maxchang3/github-activity-box/ci.yml?style=flat-square&label=CI)](https://github.com/maxchang3/github-activity-box/actions)
 [![License](https://img.shields.io/github/license/maxchang3/github-activity-box?style=flat-square)](LICENSE)
 
 ## ✨ Enhancements

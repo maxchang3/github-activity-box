@@ -48,15 +48,14 @@ const pr = new Set()
 for (const event of events) {
     // Ignore events that are not in the serializer
     if (!Object.hasOwn(serializers, event.type)) continue
-    //  Exclude closed unmerged PRs
-    if (event.type === 'PullRequestEvent') {
-        const { action, pull_request } = event.payload
-        if (action === 'closed' && !pull_request.merged) continue
-    }
+    // If the event is not a `PullRequestEvent`, add it directly
     if (event.type !== 'PullRequestEvent') {
         processedEvents.push(event)
         continue
     }
+    // Exclude pull requests that are closed but not merged
+    const { action, pull_request } = event.payload
+    if (action === 'closed' && !pull_request.merged) continue
     // Consolidate duplicate PR events, retaining only the latest one
     const prNumber = event.payload.pull_request.number
     if (!pr.has(prNumber)) {

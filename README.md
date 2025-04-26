@@ -83,7 +83,7 @@ jobs:
           cache: pnpm
 
       - name: Update activity
-        run: npx github-activity-box@latest
+        run: npx github-activity-box@0
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

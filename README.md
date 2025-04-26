@@ -50,7 +50,7 @@ github-activity-box [options]
 #### Prerequisites
 
 1. Create a new public [GitHub Gist](https://gist.github.com/)
-2. Generate a [personal access token](https://github.com/settings/tokens/new) with `gist` scope
+2. Generate a [personal access token](https://github.com/settings/personal-access-tokens) with `gist` scope
 
 #### Workflow Configuration
 

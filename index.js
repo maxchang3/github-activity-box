@@ -78,6 +78,11 @@ const box = new GistBox({ id: GIST_ID, token: GH_PAT })
 
 try {
     console.log(`Updating Gist ${GIST_ID}`)
+    if (process.argv.includes('--dry')) {
+        console.log('Dry run, not updating the Gist')
+        console.log(content)
+        process.exit(0)
+    }
     await box.update({ content })
     console.log('Gist updated!')
 } catch (err) {

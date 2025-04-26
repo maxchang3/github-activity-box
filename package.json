@@ -9,21 +9,24 @@
   "bin": {
     "github-lang-box": "index.js"
   },
-  "files": [
-    "index.js",
-    "README.md",
-    "LICENSE"
-  ],
+  "files": ["index.js", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxchang3/github-activity-box.git"
+  },
   "scripts": {
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "lint": "biome check",
     "lint:fix": "biome check --write .",
+    "prepare": "simple-git-hooks",
     "release": "bumpp && pnpm publish"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/maxchang3/github-activity-box.git"
+  "simple-git-hooks": {
+    "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && pnpx lint-staged"
+  },
+  "lint-staged": {
+    "*": "biome check --write"
   },
   "dependencies": {
     "@octokit/rest": "^21.1.1",
@@ -36,6 +39,8 @@
     "@octokit/types": "^14.0.0",
     "@vitest/coverage-v8": "^1.4.0",
     "bumpp": "^10.1.0",
+    "lint-staged": "^15.5.1",
+    "simple-git-hooks": "^2.13.0",
     "vitest": "^1.4.0"
   }
 }

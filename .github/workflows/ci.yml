@@ -4,12 +4,14 @@ on:
   push:
     paths:
       - "**.ts"
+      - "**.js"
       - ".github/workflows/**"
   pull_request:
     branches:
       - master
     paths:
       - "**.ts"
+      - "**.js"
       - ".github/workflows/**"
 
 jobs:

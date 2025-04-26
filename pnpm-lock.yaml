@@ -24,6 +24,9 @@ importers:
       '@maxchang/biome-config':
         specifier: ^0.0.4
         version: 0.0.4
+      '@octokit/types':
+        specifier: ^14.0.0
+        version: 14.0.0
       '@vitest/coverage-v8':
         specifier: ^1.4.0
         version: 1.6.1(vitest@1.6.1(@types/node@22.15.2))

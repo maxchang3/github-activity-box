@@ -9,7 +9,11 @@
   "bin": {
     "github-lang-box": "index.js"
   },
-  "files": ["index.js", "README.md", "LICENSE"],
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "vitest",
     "test:coverage": "vitest --coverage",
@@ -29,6 +33,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@maxchang/biome-config": "^0.0.4",
+    "@octokit/types": "^14.0.0",
     "@vitest/coverage-v8": "^1.4.0",
     "bumpp": "^10.1.0",
     "vitest": "^1.4.0"

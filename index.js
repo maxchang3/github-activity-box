@@ -9,10 +9,21 @@ const octokit = new Octokit({
     auth: `token ${GH_PAT}`,
 })
 
-const capitalize = (str) => str.slice(0, 1).toUpperCase() + str.slice(1)
-const truncate = (str) =>
+/**
+ * @import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types'
+ *
+ * @typedef { typeof octokit.activity.listPublicEventsForUser } ListPublicEventsForUser
+ * @typedef { GetResponseDataTypeFromEndpointMethod<ListPublicEventsForUser>[number] } PublicEvent
+ */
+
+const capitalize = (/** @type {string} */ str) =>
+    str.slice(0, 1).toUpperCase() + str.slice(1)
+const truncate = (/** @type {string} */ str) =>
     str.length <= MAX_LENGTH ? str : str.slice(0, MAX_LENGTH - 3) + '...'
 
+/**
+ * @type {Record<string, (item: PublicEvent) => string>}
+ */
 const serializers = {
     IssueCommentEvent: (item) => {
         return `🗣 Commented on #${item.payload.issue.number} in ${item.repo.name}`
@@ -42,8 +53,8 @@ const { data: events } = await octokit.activity.listPublicEventsForUser({
 
 console.log(`Activity for ${GH_USERNAME}, ${events.length} events found.`)
 
-const processedEvents = []
-const pr = new Set()
+const processedEvents = /** @type {PublicEvent[]} */ ([])
+const pr = /** @type {Set<number>} */ (new Set())
 
 for (const event of events) {
     // Ignore events that are not in the serializer

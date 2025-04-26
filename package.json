@@ -22,7 +22,7 @@
     "url": "https://github.com/maxchang3/github-activity-box.git"
   },
   "dependencies": {
-    "actions-toolkit": "^6.0.1",
+    "@octokit/rest": "^21.1.1",
     "dotenv": "^16.5.0",
     "gist-box": "^0.3.1"
   },

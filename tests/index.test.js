@@ -1,53 +1,12 @@
-import { Toolkit } from 'actions-toolkit'
 import { beforeEach, expect, it, vi } from 'vitest'
-
-const events = [
-    {
-        type: 'IssuesEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: { action: 'opened', issue: { number: 1 } },
-    },
-    {
-        type: 'IssueCommentEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: { action: 'closed', issue: { number: 1 } },
-    },
-    {
-        type: 'PullRequestEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: { action: 'opened', pull_request: { number: 2 } },
-    },
-    {
-        type: 'PullRequestEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: {
-            action: 'closed',
-            pull_request: { number: 2, merged: true },
-        },
-    },
-    {
-        type: 'PullRequestEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: {
-            action: 'closed',
-            pull_request: { number: 3, merged: false },
-        },
-    },
-    {
-        type: 'PullRequestEvent',
-        repo: {
-            name: 'clippy/really-really-really-really-really-really-really-really-really-long',
-        },
-        payload: { action: 'opened', pull_request: { number: 3 } },
-    },
-    {
-        type: 'PullRequestEvent',
-        repo: { name: 'clippy/take-over-github' },
-        payload: { action: 'opened', pull_request: { number: 4 } },
-    },
-].toReversed()
+import events from './fixtures/events.json'
 
 const mockedUpdate = vi.fn()
+const mockedConsoleError = vi.fn()
+
+vi.spyOn(console, 'log').mockImplementation(() => {})
+vi.spyOn(console, 'error').mockImplementation(mockedConsoleError)
+vi.spyOn(process, 'exit').mockImplementation(() => {})
 
 vi.mock('gist-box', async (importOriginal) => {
     const actual = await importOriginal()
@@ -59,53 +18,29 @@ vi.mock('gist-box', async (importOriginal) => {
     }
 })
 
-vi.mock('actions-toolkit', async (importOriginal) => {
-    const actual = await importOriginal()
-    return {
-        ...actual,
-        Toolkit: vi.fn().mockImplementation(() => ({
-            exit: {
-                success: vi.fn(),
-                failure: vi.fn(),
-            },
-            log: {
-                debug: vi.fn(),
-                info: vi.fn(),
-                warn: vi.fn(),
-                fatal: vi.fn(),
-            },
-            github: {
-                activity: {
-                    listPublicEventsForUser: () => ({
-                        data: events,
-                    }),
-                },
-            },
-        })),
-    }
-})
+vi.mock('@octokit/rest', () => ({
+    Octokit: vi.fn().mockImplementation(() => ({
+        activity: {
+            listPublicEventsForUser: vi.fn().mockResolvedValue({
+                data: events,
+            }),
+        },
+    })),
+}))
 
 describe('activity-box', () => {
-    /** @type {Parameters<typeof Toolkit['run']>[]} */
-    let action
-    /** @type {Toolkit} */
-    let tools
-
     beforeEach(async () => {
-        Toolkit.run = (fn) => {
-            action = fn
-        }
-
-        await import('../index.js')
-
-        tools = new Toolkit()
-
-        mockedUpdate.mockReset()
+        mockedUpdate.mockClear()
     })
 
+    const runAction = async () => {
+        vi.resetModules()
+        return await import('../index.js')
+    }
+
     it('updates the Gist with the expected string', async () => {
-        await action(tools)
-        expect(mockedUpdate).toHaveBeenCalled()
+        await runAction()
+        expect(mockedUpdate).toHaveBeenCalledOnce()
         expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
     })
 
@@ -114,8 +49,9 @@ describe('activity-box', () => {
             throw new Error('404')
         })
 
-        await action(tools)
-        expect(tools.exit.failure).toHaveBeenCalled()
-        expect(tools.exit.failure.mock.calls).toMatchSnapshot()
+        await runAction()
+        expect(mockedConsoleError).toHaveBeenCalledOnce()
+        expect(mockedConsoleError.mock.calls[0][0]).toMatchSnapshot()
+        expect(mockedUpdate).toHaveBeenCalled()
     })
 })

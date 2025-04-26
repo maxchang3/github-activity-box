@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 import 'dotenv/config'
-
-import { Toolkit } from 'actions-toolkit'
+import { Octokit } from '@octokit/rest'
 import { GistBox, MAX_LENGTH, MAX_LINES } from 'gist-box'
+
+const { GIST_ID, GH_USERNAME, GH_PAT } = process.env
+
+const octokit = new Octokit({
+    auth: `token ${GH_PAT}`,
+})
 
 const capitalize = (str) => str.slice(0, 1).toUpperCase() + str.slice(1)
 const truncate = (str) =>
@@ -28,66 +33,55 @@ const serializers = {
     },
 }
 
-Toolkit.run(
-    async (tools) => {
-        const { GIST_ID, GH_USERNAME, GH_PAT } = process.env
+// Get the user's public events
+console.log(`Getting activity for ${GH_USERNAME}`)
+const { data: events } = await octokit.activity.listPublicEventsForUser({
+    username: GH_USERNAME,
+    per_page: 100,
+})
 
-        // Get the user's public events
-        tools.log.debug(`Getting activity for ${GH_USERNAME}`)
-        const { data: events } =
-            await tools.github.activity.listPublicEventsForUser({
-                username: GH_USERNAME,
-                per_page: 100,
-            })
-        tools.log.debug(
-            `Activity for ${GH_USERNAME}, ${events.length} events found.`
-        )
+console.log(`Activity for ${GH_USERNAME}, ${events.length} events found.`)
 
-        const processedEvents = []
-        const pr = new Set()
+const processedEvents = []
+const pr = new Set()
 
-        for (const event of events) {
-            // Ignore events that are not in the serializer
-            if (!Object.hasOwn(serializers, event.type)) continue
-            //  Exclude closed unmerged PRs
-            if (event.type === 'PullRequestEvent') {
-                const { action, pull_request } = event.payload
-                if (action === 'closed' && !pull_request.merged) continue
-            }
-            if (event.type !== 'PullRequestEvent') {
-                processedEvents.push(event)
-                continue
-            }
-            // Consolidate duplicate PR events, retaining only the latest one
-            const prNumber = event.payload.pull_request.number
-            if (!pr.has(prNumber)) {
-                pr.add(prNumber)
-                processedEvents.push(event)
-            }
-        }
-
-        const content = processedEvents
-            // We only have five lines to work with
-            .slice(0, MAX_LINES)
-            // Call the serializer to construct a string
-            .map((item) => serializers[item.type](item))
-            // Truncate if necessary
-            .map(truncate)
-            // Join items to one string
-            .join('\n')
-
-        const box = new GistBox({ id: GIST_ID, token: GH_PAT })
-        try {
-            tools.log.debug(`Updating Gist ${GIST_ID}`)
-            await box.update({ content })
-            tools.exit.success('Gist updated!')
-        } catch (err) {
-            tools.log.debug('Error getting or update the Gist:')
-            return tools.exit.failure(err)
-        }
-    },
-    {
-        event: ['schedule', 'push', 'workflow_dispatch'],
-        secrets: ['GITHUB_TOKEN', 'GH_PAT', 'GH_USERNAME', 'GIST_ID'],
+for (const event of events) {
+    // Ignore events that are not in the serializer
+    if (!Object.hasOwn(serializers, event.type)) continue
+    //  Exclude closed unmerged PRs
+    if (event.type === 'PullRequestEvent') {
+        const { action, pull_request } = event.payload
+        if (action === 'closed' && !pull_request.merged) continue
     }
-)
+    if (event.type !== 'PullRequestEvent') {
+        processedEvents.push(event)
+        continue
+    }
+    // Consolidate duplicate PR events, retaining only the latest one
+    const prNumber = event.payload.pull_request.number
+    if (!pr.has(prNumber)) {
+        pr.add(prNumber)
+        processedEvents.push(event)
+    }
+}
+
+const content = processedEvents
+    // We only have five lines to work with
+    .slice(0, MAX_LINES)
+    // Call the serializer to construct a string
+    .map((item) => serializers[item.type](item))
+    // Truncate if necessary
+    .map(truncate)
+    // Join items to one string
+    .join('\n')
+
+const box = new GistBox({ id: GIST_ID, token: GH_PAT })
+
+try {
+    console.log(`Updating Gist ${GIST_ID}`)
+    await box.update({ content })
+    console.log('Gist updated!')
+} catch (err) {
+    console.error(`Error getting or update the Gist: ${err}`)
+    process.exit(1)
+}

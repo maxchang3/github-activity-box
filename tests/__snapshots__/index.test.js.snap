@@ -1,12 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`activity-box > handles failure to update the Gist 1`] = `
-[
-  [
-    [Error: 404],
-  ],
-]
-`;
+exports[`activity-box > handles failure to update the Gist 1`] = `"Error getting or update the Gist: Error: 404"`;
 
 exports[`activity-box > updates the Gist with the expected string 1`] = `
 {

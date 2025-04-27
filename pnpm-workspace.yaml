@@ -1,5 +1,4 @@
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - esbuild
-  - husky
   - simple-git-hooks

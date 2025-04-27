@@ -15,12 +15,11 @@
 
 ## ✨ Enhancements
 
-- **NPM Package**: Install globally or run with `npx`/`pnpx`, simplifying usage.
-- **Enhanced Filtering**:
+- 🔍 Improved PR filtering:
   - Excludes closed but unmerged PRs
   - Deduplicates PR events, showing only the latest status for each PR.
-- **Code Refactoring**: Refactored code and tests.
-- Modernized package dependencies and removed unnecessary ones.
+- ✅ Updated dependencies, refactored code and tests.
+- 📦 Published to npm with binary support for easy use via `npx` or `pnpx`
 
 ## 🚀 Usage
 

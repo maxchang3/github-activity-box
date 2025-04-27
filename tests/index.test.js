@@ -1,6 +1,5 @@
 import { beforeEach, expect, it, vi } from 'vitest'
-import events from './fixtures/events.json'
-
+import { Issues, PRs } from './fixtures'
 const mockedUpdate = vi.fn()
 const mockedConsoleError = vi.fn()
 
@@ -18,14 +17,17 @@ vi.mock('gist-box', async (importOriginal) => {
     }
 })
 
-vi.mock('@octokit/rest', () => ({
-    Octokit: vi.fn().mockImplementation(() => ({
-        activity: {
-            listPublicEventsForUser: vi.fn().mockResolvedValue({
-                data: events,
-            }),
+vi.mock('../src/graphql', async () => ({
+    getIssues: vi.fn().mockResolvedValue({
+        search: {
+            edges: Issues,
         },
-    })),
+    }),
+    getPRs: vi.fn().mockResolvedValue({
+        search: {
+            edges: PRs,
+        },
+    }),
 }))
 
 describe('activity-box', () => {
@@ -35,7 +37,7 @@ describe('activity-box', () => {
 
     const runAction = async () => {
         vi.resetModules()
-        return await import('../index.js')
+        return await import('../src/index.ts')
     }
 
     it('updates the Gist with the expected string', async () => {

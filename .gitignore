@@ -83,3 +83,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Build output
+dist/

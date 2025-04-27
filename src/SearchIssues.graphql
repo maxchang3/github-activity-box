@@ -1,0 +1,28 @@
+query SearchIssues($first: Int = 10, $searchQuery: String!) {
+  search(first: $first, type: ISSUE, query: $searchQuery) {
+    edges {
+      node {
+        ... on PullRequest {
+          type: __typename
+          title
+          repo: repository {
+            name: nameWithOwner
+          }
+          number
+          prState: state
+          createdAt
+        }
+        ... on Issue {
+          type: __typename
+          title
+          repo: repository {
+            name: nameWithOwner
+          }
+          number
+          issueState: state
+          createdAt
+        }
+      }
+    }
+  }
+}

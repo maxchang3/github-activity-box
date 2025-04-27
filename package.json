@@ -5,9 +5,9 @@
   "description": "⚡️📌️ Update a gist to contain your recent activity",
   "author": "Jason Etcovitch <jasonetco@gmail.com>, Max Chang <https://github.com/maxchang3>",
   "license": "ISC",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "bin": {
-    "github-activity-box": "index.js"
+    "github-activity-box": "./bin/index.js"
   },
   "files": ["index.js", "README.md", "LICENSE"],
   "repository": {
@@ -15,12 +15,16 @@
     "url": "https://github.com/maxchang3/github-activity-box.git"
   },
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch --sourcemap",
+    "start": "node dist/index.js",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "lint": "biome check",
     "lint:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
-    "release": "bumpp && pnpm publish"
+    "release": "pnpm build && bumpp && pnpm publish"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && pnpx lint-staged"
@@ -29,6 +33,7 @@
     "*": "biome check ."
   },
   "dependencies": {
+    "@octokit/graphql": "^8.2.2",
     "@octokit/rest": "^21.1.1",
     "dotenv": "^16.5.0",
     "gist-box": "^0.3.1"
@@ -37,10 +42,13 @@
     "@biomejs/biome": "^1.9.4",
     "@maxchang/biome-config": "^0.0.4",
     "@octokit/types": "^14.0.0",
+    "@types/node": "^22.15.2",
     "@vitest/coverage-v8": "^1.4.0",
     "bumpp": "^10.1.0",
     "lint-staged": "^15.5.1",
     "simple-git-hooks": "^2.13.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
     "vitest": "^1.4.0"
   }
 }

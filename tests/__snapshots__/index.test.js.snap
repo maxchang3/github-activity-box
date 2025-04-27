@@ -4,10 +4,10 @@ exports[`activity-box > handles failure to update the Gist 1`] = `"Error getting
 
 exports[`activity-box > updates the Gist with the expected string 1`] = `
 {
-  "content": "💪 Opened PR #4 in clippy/take-over-github
-💪 Opened PR #3 in clippy/really-really-really-really-really...
-🎉 Merged PR #2 in clippy/take-over-github
-🗣 Commented on #1 in clippy/take-over-github
-❗️ Opened issue #1 in clippy/take-over-github",
+  "content": "❗️ Open: issue #35 in clippy/really-really-really-really-rea...
+💪 Open: PR #38 in clippy/take-over-github
+❗️ Open: issue #31 in clippy/take-over-github
+🎉 Merged: PR #32 in clippy/take-over-github
+❌ Closed: PR #30 in clippy/really-really-really-really-reall...",
 }
 `;

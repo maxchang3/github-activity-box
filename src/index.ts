@@ -1,5 +1,5 @@
 import { GistBox, MAX_LENGTH, MAX_LINES } from 'gist-box'
-import { ENV } from './env'
+import { env } from './env'
 import { getIssues, getPRs } from './graphql'
 import type { IssueNode, PullRequestNode } from './types'
 
@@ -39,7 +39,7 @@ const getIssuesAndPRs = async (author: string) => {
     return allNodes
 }
 
-const activities = await getIssuesAndPRs(ENV.GH_USERNAME)
+const activities = await getIssuesAndPRs(env.GH_USERNAME)
 
 const content = activities
     // We only have five lines to work with
@@ -61,16 +61,16 @@ const content = activities
     // Join items to one string
     .join('\n')
 
-const box = new GistBox({ id: ENV.GIST_ID, token: ENV.GH_PAT })
+const box = new GistBox({ id: env.GIST_ID, token: env.GH_PAT })
 
 try {
-    console.log(`Updating Gist ${ENV.GIST_ID}`)
+    console.log(`Updating Gist ${env.GIST_ID}`)
     if (process.argv.includes('--dry')) {
         console.log('Dry run, not updating the Gist')
         console.log(content)
         process.exit(0)
     }
-    await box.update({ content })
+    await box.update({ content, description: env.DESCRIPTION })
     console.log('Gist updated!')
 } catch (err) {
     console.error(`Error getting or update the Gist: ${err}`)

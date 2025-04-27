@@ -1,11 +1,10 @@
 import { graphql } from '@octokit/graphql'
-import { ENV } from 'src/env'
 import type { SearchIssuesResponse } from 'src/types'
 import SearchIssues from './SearchIssues.graphql'
 
 const graphqlWithAuth = graphql.defaults({
     headers: {
-        authorization: `token ${ENV.GH_PAT}`,
+        authorization: `token ${env.GH_PAT}`,
     },
 })
 

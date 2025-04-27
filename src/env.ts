@@ -1,16 +1,17 @@
 import 'dotenv/config'
+import { z } from 'zod'
 
-const { GIST_ID, GH_USERNAME, GH_PAT } = process.env
+const commaSeparatedString = z
+    .string()
+    .transform((val) => val.split(',').map((x) => x.trim()))
+    .default('')
 
-if (!GIST_ID || !GH_USERNAME || !GH_PAT) {
-    console.error(
-        'GIST_ID, GH_USERNAME and GH_PAT must be set in the environment variables'
-    )
-    process.exit(1)
-}
+const envSchema = z.object({
+    GIST_ID: z.string(),
+    GH_USERNAME: z.string(),
+    GH_PAT: z.string(),
+    EXCLUDE_REPO: commaSeparatedString,
+    DESCRIPTION: z.string().optional(),
+})
 
-export const ENV = {
-    GIST_ID,
-    GH_USERNAME,
-    GH_PAT,
-}
+export const env = envSchema.parse(process.env)

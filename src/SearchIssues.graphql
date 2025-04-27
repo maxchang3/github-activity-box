@@ -1,4 +1,4 @@
-query SearchIssues($first: Int = 10, $searchQuery: String!) {
+query SearchIssues($first: Int = 20, $searchQuery: String!) {
   search(first: $first, type: ISSUE, query: $searchQuery) {
     edges {
       node {

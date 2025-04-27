@@ -11,6 +11,7 @@ const envSchema = z.object({
     GH_USERNAME: z.string(),
     GH_PAT: z.string(),
     EXCLUDE_REPO: commaSeparatedString,
+    EXCLUDE_OWNER: commaSeparatedString,
     DESCRIPTION: z.string().optional(),
 })
 

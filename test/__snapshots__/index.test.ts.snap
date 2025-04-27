@@ -1,5 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`activity-box > should exclude owners listed in \`EXCLUDE_OWNER\` 1`] = `
+{
+  "content": "",
+  "description": undefined,
+}
+`;
+
 exports[`activity-box > should exclude repos listed in \`EXCLUDE_REPO\` 1`] = `
 {
   "content": "❗️ Open: issue #35 in clippy/really-really-really-really-rea...

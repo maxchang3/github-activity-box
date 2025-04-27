@@ -34,6 +34,8 @@ vi.mock('../src/graphql', async () => ({
 describe('activity-box', () => {
     beforeEach(async () => {
         mockedUpdate.mockClear()
+        vi.stubEnv('EXCLUDE_REPO', '')
+        vi.stubEnv('EXCLUDE_OWNER', '')
     })
 
     const runAction = async () => {
@@ -49,6 +51,14 @@ describe('activity-box', () => {
 
     it('should exclude repos listed in `EXCLUDE_REPO`', async () => {
         vi.stubEnv('EXCLUDE_REPO', 'clippy/should-be-filtered')
+
+        await runAction()
+        expect(mockedUpdate).toHaveBeenCalledOnce()
+        expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
+    })
+
+    it('should exclude owners listed in `EXCLUDE_OWNER`', async () => {
+        vi.stubEnv('EXCLUDE_OWNER', 'clippy')
 
         await runAction()
         expect(mockedUpdate).toHaveBeenCalledOnce()

@@ -33,7 +33,12 @@ const getIssuesAndPRs = async (author: string) => {
         ...issues.search.edges.map((e) => e.node),
         ...PRs.search.edges.map((e) => e.node),
     ]
-        .filter((node) => !env.EXCLUDE_REPO.includes(node.repo.name))
+        // Filter out excluded repos and owners
+        .filter(
+            (node) =>
+                !env.EXCLUDE_REPO.includes(node.repo.name) &&
+                !env.EXCLUDE_OWNER.includes(node.repo.owner.login)
+        )
         .sort((a, b) => {
             return (
                 new Date(b.createdAt).getTime() -

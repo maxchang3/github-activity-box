@@ -4,7 +4,10 @@
       "type": "PullRequest",
       "title": "Should be filtered out",
       "repo": {
-        "name": "clippy/should-be-filtered"
+        "name": "clippy/should-be-filtered",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 50,
       "prState": "OPEN",
@@ -16,7 +19,10 @@
       "type": "PullRequest",
       "title": "Fix security vulnerabilities in third-party libraries",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 38,
       "prState": "OPEN",
@@ -28,7 +34,10 @@
       "type": "PullRequest",
       "title": "Implement new UI design for dashboard",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 32,
       "prState": "MERGED",
@@ -40,7 +49,10 @@
       "type": "PullRequest",
       "title": "Add internationalization support",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 30,
       "prState": "CLOSED",
@@ -52,7 +64,10 @@
       "type": "PullRequest",
       "title": "Optimize database queries for faster response times",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 26,
       "prState": "CLOSED",
@@ -64,7 +79,10 @@
       "type": "PullRequest",
       "title": "Add unit tests for core functionality",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 21,
       "prState": "MERGED",
@@ -76,7 +94,10 @@
       "type": "PullRequest",
       "title": "Implement accessibility improvements",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 17,
       "prState": "OPEN",
@@ -88,7 +109,10 @@
       "type": "PullRequest",
       "title": "Update dependencies to latest versions",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 12,
       "prState": "MERGED",
@@ -100,7 +124,10 @@
       "type": "PullRequest",
       "title": "Refactor codebase for better readability",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 7,
       "prState": "CLOSED",
@@ -112,7 +139,10 @@
       "type": "PullRequest",
       "title": "Fix critical bug in authentication module",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 5,
       "prState": "OPEN",
@@ -124,7 +154,10 @@
       "type": "PullRequest",
       "title": "Add new feature to improve performance",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 4,
       "prState": "MERGED",

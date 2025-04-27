@@ -4,7 +4,10 @@
       "type": "Issue",
       "title": "[Feature Request] Add export to PDF functionality",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 35,
       "issueState": "OPEN",
@@ -16,7 +19,10 @@
       "type": "Issue",
       "title": "Improve error handling for network failures",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 31,
       "issueState": "OPEN",
@@ -28,7 +34,10 @@
       "type": "Issue",
       "title": "[Bug] Memory leak in background process",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 27,
       "issueState": "CLOSED",
@@ -40,7 +49,10 @@
       "type": "Issue",
       "title": "UI elements not aligning properly on mobile",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 22,
       "issueState": "OPEN",
@@ -52,7 +64,10 @@
       "type": "Issue",
       "title": "[Enhancement] Support for multiple profiles",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 18,
       "issueState": "OPEN",
@@ -64,7 +79,10 @@
       "type": "Issue",
       "title": "Performance issue with large datasets",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 15,
       "issueState": "CLOSED",
@@ -76,7 +94,10 @@
       "type": "Issue",
       "title": "[Security] Fix authentication vulnerability",
       "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long"
+        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 10,
       "issueState": "CLOSED",
@@ -88,7 +109,10 @@
       "type": "Issue",
       "title": "Documentation needs improvement",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 3,
       "issueState": "OPEN",
@@ -100,7 +124,10 @@
       "type": "Issue",
       "title": "[Feature] Add dark mode support",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 2,
       "issueState": "OPEN",
@@ -112,7 +139,10 @@
       "type": "Issue",
       "title": "[Bug] Application crashes on startup",
       "repo": {
-        "name": "clippy/take-over-github"
+        "name": "clippy/take-over-github",
+        "owner": {
+          "login": "clippy"
+        }
       },
       "number": 1,
       "issueState": "CLOSED",

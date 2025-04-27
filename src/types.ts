@@ -3,6 +3,9 @@ export interface BasicSearchNode {
     title: string
     repo: {
         name: string
+        owner: {
+            login: string
+        }
     }
     number: number
     createdAt: string

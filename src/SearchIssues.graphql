@@ -7,6 +7,9 @@ query SearchIssues($first: Int = 20, $searchQuery: String!) {
           title
           repo: repository {
             name: nameWithOwner
+            owner: owner {
+              login
+            }
           }
           number
           prState: state
@@ -17,6 +20,9 @@ query SearchIssues($first: Int = 20, $searchQuery: String!) {
           title
           repo: repository {
             name: nameWithOwner
+            owner: owner {
+              login
+            }
           }
           number
           issueState: state

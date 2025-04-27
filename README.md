@@ -36,13 +36,14 @@ github-activity-box [options]
 - `--dry` - Preview output without updating the gist
 
 **Required Environment Variables:**
-| Variable       | Description                                                                                              |
-| -------------- | -------------------------------------------------------------------------------------------------------- |
-| `GIST_ID`      | ID portion from your gist URL (`https://gist.github.com/username/GIST_ID`)                               |
-| `GH_PAT`       | GitHub personal access token with `gist` scope                                                           |
-| `GH_USERNAME`  | Your GitHub username                                                                                     |
-| `DESCRIPTION`  | (optional) Description for the gist                                                                      |
-| `EXCLUDE_REPO` | (Optional) Comma-separated list of repositories to exclude <br> Example: `username/repo1,username/repo2` |
+| Variable        | Description                                                                                              |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| `GIST_ID`       | ID portion from your gist URL (`https://gist.github.com/username/GIST_ID`)                               |
+| `GH_PAT`        | GitHub personal access token with `gist` scope                                                           |
+| `GH_USERNAME`   | Your GitHub username                                                                                     |
+| `DESCRIPTION`   | (optional) Description for the gist                                                                      |
+| `EXCLUDE_REPO`  | (Optional) Comma-separated list of repositories to exclude <br> Example: `username/repo1,username/repo2` |
+| `EXCLUDE_OWNER` | (Optional) Comma-separated list of owners to exclude <br> Example: `username1,username2`                 |
 
 ### GitHub Action Setup
 

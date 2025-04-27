@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/fixtures/*": ["./test/fixtures/*"]
+    }
+  },
+  "include": ["test/**/*.ts"]
+}

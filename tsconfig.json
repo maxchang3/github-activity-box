@@ -8,9 +8,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/fixtures/*": ["./test/fixtures/*"]
-    }
-  }
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules", "dist", "test"]
 }

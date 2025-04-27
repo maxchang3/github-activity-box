@@ -1,14 +1,15 @@
-import { beforeEach, expect, it, vi } from 'vitest'
-import { Issues, PRs } from './fixtures'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { Issues, PRs } from './fixtures/index.ts'
 const mockedUpdate = vi.fn()
 const mockedConsoleError = vi.fn()
 
 vi.spyOn(console, 'log').mockImplementation(() => {})
 vi.spyOn(console, 'error').mockImplementation(mockedConsoleError)
+// @ts-expect-error no need to throw
 vi.spyOn(process, 'exit').mockImplementation(() => {})
 
 vi.mock('gist-box', async (importOriginal) => {
-    const actual = await importOriginal()
+    const actual = await importOriginal<typeof import('gist-box')>()
     return {
         ...actual,
         GistBox: vi.fn().mockImplementation(() => ({

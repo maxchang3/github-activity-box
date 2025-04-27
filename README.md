@@ -15,7 +15,13 @@
 
 ## ✨ Enhancements
 
-- 🔍 Uses GraphQL API to search for issues and PRs authored by the provided username.
+- 🔍 Uses GraphQL API to search for issues and PRs **authored** by the provided username.
+  > [!NOTE]
+  >
+  > The original implementation fetched events initiated by the user (so PRs merged by others aren't counted).
+  > 
+  > Currently, multiple states of the same PR, such as opening and merging, won't be retrieved. Also, comment events are not included.
+- 🎨 Supports custom descriptions and filtering by specific repos/owners
 - ✅ Updated dependencies, rewritten to TypeScript, and refactored the tests.
 - 📦 Published to npm with binary support for easy use via `npx` or `pnpx`
 

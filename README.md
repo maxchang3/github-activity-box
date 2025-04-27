@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400" src="https://user-images.githubusercontent.com/10660468/54499151-062f8900-48e5-11e9-82c9-767d39c9cbbe.png">
+  <img width="300" src="./assets/preview.png">
   <p align="center">⚡️📌 Update a pinned gist to show your latest GitHub activity</p>
 </p>
 
@@ -15,10 +15,8 @@
 
 ## ✨ Enhancements
 
-- 🔍 Improved PR filtering:
-  - Excludes closed but unmerged PRs
-  - Deduplicates PR events, showing only the latest status for each PR.
-- ✅ Updated dependencies, refactored code and tests.
+- 🔍 Uses GraphQL API to search for issues and PRs authored by the provided username.
+- ✅ Updated dependencies, rewritten to TypeScript, and refactored the tests.
 - 📦 Published to npm with binary support for easy use via `npx` or `pnpx`
 
 ## 🚀 Usage

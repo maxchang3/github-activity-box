@@ -7,7 +7,7 @@
   "license": "ISC",
   "main": "index.js",
   "bin": {
-    "github-lang-box": "index.js"
+    "github-activity-box": "index.js"
   },
   "files": ["index.js", "README.md", "LICENSE"],
   "repository": {

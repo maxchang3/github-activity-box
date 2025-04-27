@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "github-activity-box",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "⚡️📌️ Update a gist to contain your recent activity",
   "author": "Jason Etcovitch <jasonetco@gmail.com>, Max Chang <https://github.com/maxchang3>",
   "license": "ISC",

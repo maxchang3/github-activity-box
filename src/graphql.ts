@@ -1,6 +1,7 @@
 import { graphql } from '@octokit/graphql'
 import type { SearchIssuesResponse } from 'src/types'
 import SearchIssues from './SearchIssues.graphql'
+import { env } from './env'
 
 const graphqlWithAuth = graphql.defaults({
     headers: {

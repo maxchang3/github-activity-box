@@ -40,13 +40,21 @@ describe('activity-box', () => {
         return await import('../src/index.ts')
     }
 
-    it('updates the Gist with the expected string', async () => {
+    it('should update the Gist with the expected string', async () => {
         await runAction()
         expect(mockedUpdate).toHaveBeenCalledOnce()
         expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
     })
 
-    it('handles failure to update the Gist', async () => {
+    it('should exclude repos listed in `EXCLUDE_REPO`', async () => {
+        vi.stubEnv('EXCLUDE_REPO', 'clippy/should-be-filtered')
+
+        await runAction()
+        expect(mockedUpdate).toHaveBeenCalledOnce()
+        expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
+    })
+
+    it('should handle failure to update the Gist', async () => {
         mockedUpdate.mockImplementationOnce(() => {
             throw new Error('404')
         })

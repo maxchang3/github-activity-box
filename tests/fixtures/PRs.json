@@ -2,6 +2,18 @@
   {
     "node": {
       "type": "PullRequest",
+      "title": "Should be filtered out",
+      "repo": {
+        "name": "clippy/should-be-filtered"
+      },
+      "number": 50,
+      "prState": "OPEN",
+      "createdAt": "2025-04-25T13:44:56Z"
+    }
+  },
+  {
+    "node": {
+      "type": "PullRequest",
       "title": "Fix security vulnerabilities in third-party libraries",
       "repo": {
         "name": "clippy/take-over-github"

@@ -32,9 +32,14 @@ const getIssuesAndPRs = async (author: string) => {
     const allNodes = [
         ...issues.search.edges.map((e) => e.node),
         ...PRs.search.edges.map((e) => e.node),
-    ].sort((a, b) => {
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    })
+    ]
+        .filter((node) => !env.EXCLUDE_REPO.includes(node.repo.name))
+        .sort((a, b) => {
+            return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+            )
+        })
 
     return allNodes
 }

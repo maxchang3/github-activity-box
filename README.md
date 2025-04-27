@@ -49,7 +49,7 @@ github-activity-box [options]
 | `GIST_ID`       | ID portion from your gist URL (`https://gist.github.com/username/GIST_ID`)                               |
 | `GH_PAT`        | GitHub personal access token with `gist` scope                                                           |
 | `GH_USERNAME`   | Your GitHub username                                                                                     |
-| `DESCRIPTION`   | (optional) Description for the gist                                                                      |
+| `DESCRIPTION`   | (Optional) Description for the gist                                                                      |
 | `EXCLUDE_REPO`  | (Optional) Comma-separated list of repositories to exclude <br> Example: `username/repo1,username/repo2` |
 | `EXCLUDE_OWNER` | (Optional) Comma-separated list of owners to exclude <br> Example: `username1,username2`                 |
 

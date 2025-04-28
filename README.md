@@ -108,7 +108,7 @@ jobs:
 
 1. Go to your repository **Settings** > **Secrets and variables** > **Actions**.
 2. Add a repository secret:
-   - `GH_PAT`: Your GitHub access token (requires `gist` and `metadata:read` scopes).
+   - `GH_PAT`: Your GitHub access token (requires `gist` scope).
 3. (Optional) Add repository variables as needed (`EXCLUDE_OWNER`, `EXCLUDE_REPO`).
 
 ---

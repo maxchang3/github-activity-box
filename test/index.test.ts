@@ -19,7 +19,7 @@ vi.mock('gist-box', async (importOriginal) => {
     }
 })
 
-vi.mock('@/graphql', async (importOriginal) => ({
+vi.mock('@/graphql', async () => ({
     getIssues: vi.fn().mockResolvedValue(
         SearchResponseSchema.parse({
             search: {

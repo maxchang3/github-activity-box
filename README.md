@@ -97,13 +97,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: your-username
           GIST_ID: your-gist-id
+          # You can also use hardcoded values instead of variables
+          # EXCLUDE_OWNER: username1,username2
+          # EXCLUDE_REPO: username/repo1,username/repo2
+          EXCLUDE_OWNER: ${{ vars.EXCLUDE_OWNER }}
+          EXCLUDE_REPO: ${{ vars.EXCLUDE_REPO }}
+          DESCRIPTION: Your custom description
 ```
 
-#### Add Repository Secret
+### Add Repository Secrets and Variables
 
-1. Navigate to **GitHub repo > Settings > Secrets > New repository secret**
-2. Add `GH_PAT` with your personal access token value
-
+1. Go to your repository **Settings** > **Secrets and variables** > **Actions**.
+2. Add a repository secret:
+   - `GH_PAT`: Your GitHub access token (requires `gist` and `metadata:read` scopes).
+3. (Optional) Add repository variables as needed (`EXCLUDE_OWNER`, `EXCLUDE_REPO`).
 
 ---
 

@@ -94,7 +94,6 @@ jobs:
         run: npx github-activity-box@0
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: your-username
           GIST_ID: your-gist-id
           # You can also use hardcoded values instead of variables

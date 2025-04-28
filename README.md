@@ -105,7 +105,7 @@ jobs:
           DESCRIPTION: Your custom description
 ```
 
-### Add Repository Secrets and Variables
+#### Add Repository Secrets and Variables
 
 1. Go to your repository **Settings** > **Secrets and variables** > **Actions**.
 2. Add a repository secret:

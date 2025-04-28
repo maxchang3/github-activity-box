@@ -9,11 +9,11 @@ exports[`activity-box > should exclude owners listed in \`EXCLUDE_OWNER\` 1`] = 
 
 exports[`activity-box > should exclude repos listed in \`EXCLUDE_REPO\` 1`] = `
 {
-  "content": "❗️ Open: issue #35 in clippy/really-really-really-really-rea...
-💪 Open: PR #38 in clippy/take-over-github
-❗️ Open: issue #31 in clippy/take-over-github
+  "content": "🎉 Merged: PR #4 in clippy/take-over-github
 🎉 Merged: PR #32 in clippy/take-over-github
-❌ Closed: PR #30 in clippy/really-really-really-really-reall...",
+❗️ Open: issue #35 in clippy/really-really-really-really-rea...
+❗️ Closed: issue #27 in clippy/take-over-github
+💪 Open: PR #38 in clippy/take-over-github",
   "description": undefined,
 }
 `;
@@ -22,11 +22,11 @@ exports[`activity-box > should handle failure to update the Gist 1`] = `"Error g
 
 exports[`activity-box > should update the Gist with the expected string 1`] = `
 {
-  "content": "❗️ Open: issue #35 in clippy/really-really-really-really-rea...
-💪 Open: PR #50 in clippy/should-be-filtered
-💪 Open: PR #38 in clippy/take-over-github
-❗️ Open: issue #31 in clippy/take-over-github
-🎉 Merged: PR #32 in clippy/take-over-github",
+  "content": "🎉 Merged: PR #4 in clippy/take-over-github
+🎉 Merged: PR #32 in clippy/take-over-github
+❗️ Open: issue #35 in clippy/really-really-really-really-rea...
+❗️ Closed: issue #27 in clippy/take-over-github
+💪 Open: PR #50 in clippy/should-be-filtered",
   "description": undefined,
 }
 `;

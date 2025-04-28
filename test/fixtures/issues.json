@@ -11,7 +11,8 @@
       },
       "number": 35,
       "issueState": "OPEN",
-      "createdAt": "2025-04-25T17:23:51Z"
+      "createdAt": "2025-04-25T17:23:51Z",
+      "closedAt": null
     }
   },
   {
@@ -26,7 +27,8 @@
       },
       "number": 31,
       "issueState": "OPEN",
-      "createdAt": "2025-04-24T13:55:08Z"
+      "createdAt": "2025-04-24T13:55:08Z",
+      "closedAt": null
     }
   },
   {
@@ -41,7 +43,8 @@
       },
       "number": 27,
       "issueState": "CLOSED",
-      "createdAt": "2025-04-23T10:29:42Z"
+      "createdAt": "2025-04-23T10:29:42Z",
+      "closedAt": "2025-04-25T14:35:22Z"
     }
   },
   {
@@ -56,7 +59,8 @@
       },
       "number": 22,
       "issueState": "OPEN",
-      "createdAt": "2025-04-22T16:38:14Z"
+      "createdAt": "2025-04-22T16:38:14Z",
+      "closedAt": null
     }
   },
   {
@@ -71,7 +75,8 @@
       },
       "number": 18,
       "issueState": "OPEN",
-      "createdAt": "2025-04-21T08:45:23Z"
+      "createdAt": "2025-04-21T08:45:23Z",
+      "closedAt": null
     }
   },
   {
@@ -86,7 +91,8 @@
       },
       "number": 15,
       "issueState": "CLOSED",
-      "createdAt": "2025-04-20T14:02:55Z"
+      "createdAt": "2025-04-20T14:02:55Z",
+      "closedAt": "2025-04-22T09:17:32Z"
     }
   },
   {
@@ -101,7 +107,8 @@
       },
       "number": 10,
       "issueState": "CLOSED",
-      "createdAt": "2025-04-19T09:17:30Z"
+      "createdAt": "2025-04-19T09:17:30Z",
+      "closedAt": "2025-04-21T11:25:47Z"
     }
   },
   {
@@ -116,7 +123,8 @@
       },
       "number": 3,
       "issueState": "OPEN",
-      "createdAt": "2025-04-18T11:21:45Z"
+      "createdAt": "2025-04-18T11:21:45Z",
+      "closedAt": null
     }
   },
   {
@@ -131,7 +139,8 @@
       },
       "number": 2,
       "issueState": "OPEN",
-      "createdAt": "2025-04-17T15:33:12Z"
+      "createdAt": "2025-04-17T15:33:12Z",
+      "closedAt": null
     }
   },
   {
@@ -146,7 +155,8 @@
       },
       "number": 1,
       "issueState": "CLOSED",
-      "createdAt": "2025-04-16T19:03:05Z"
+      "createdAt": "2025-04-16T19:03:05Z",
+      "closedAt": "2025-04-17T13:28:45Z"
     }
   }
 ]

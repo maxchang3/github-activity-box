@@ -1,7 +1,7 @@
+import { env } from '@/env'
+import { getIssues, getPRs } from '@/graphql'
+import type { IssueNode, PullRequestNode } from '@/schema'
 import { GistBox, MAX_LENGTH, MAX_LINES } from 'gist-box'
-import { env } from './env'
-import { getIssues, getPRs } from './graphql'
-import type { IssueNode, PullRequestNode } from './types'
 
 const capitalize = <T extends string>(str: T) =>
     (str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase()) as Capitalize<
@@ -39,11 +39,11 @@ const getIssuesAndPRs = async (author: string) => {
                 !env.EXCLUDE_REPO.includes(node.repo.name) &&
                 !env.EXCLUDE_OWNER.includes(node.repo.owner.login)
         )
+        // Sort by most recent activity (closed or created)
         .sort((a, b) => {
-            return (
-                new Date(b.createdAt).getTime() -
-                new Date(a.createdAt).getTime()
-            )
+            const aDate = a.closedAt || a.createdAt
+            const bDate = b.closedAt || b.createdAt
+            return bDate.getTime() - aDate.getTime()
         })
 
     return allNodes

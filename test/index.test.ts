@@ -1,5 +1,6 @@
+import { SearchResponseSchema } from '@/schema'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { Issues, PRs } from './fixtures/index.ts'
+import { Issues, PRs } from '~/fixtures'
 const mockedUpdate = vi.fn()
 const mockedConsoleError = vi.fn()
 
@@ -18,17 +19,21 @@ vi.mock('gist-box', async (importOriginal) => {
     }
 })
 
-vi.mock('../src/graphql', async () => ({
-    getIssues: vi.fn().mockResolvedValue({
-        search: {
-            edges: Issues,
-        },
-    }),
-    getPRs: vi.fn().mockResolvedValue({
-        search: {
-            edges: PRs,
-        },
-    }),
+vi.mock('@/graphql', async (importOriginal) => ({
+    getIssues: vi.fn().mockResolvedValue(
+        SearchResponseSchema.parse({
+            search: {
+                edges: Issues,
+            },
+        })
+    ),
+    getPRs: vi.fn().mockResolvedValue(
+        SearchResponseSchema.parse({
+            search: {
+                edges: PRs,
+            },
+        })
+    ),
 }))
 
 describe('activity-box', () => {
@@ -40,7 +45,7 @@ describe('activity-box', () => {
 
     const runAction = async () => {
         vi.resetModules()
-        return await import('../src/index.ts')
+        return await import('../src/index')
     }
 
     it('should update the Gist with the expected string', async () => {

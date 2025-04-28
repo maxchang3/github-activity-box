@@ -13,6 +13,7 @@ query SearchIssues($first: Int = 20, $searchQuery: String!) {
           }
           number
           prState: state
+          closedAt
           createdAt
         }
         ... on Issue {
@@ -26,6 +27,7 @@ query SearchIssues($first: Int = 20, $searchQuery: String!) {
           }
           number
           issueState: state
+          closedAt
           createdAt
         }
       }

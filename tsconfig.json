@@ -8,7 +8,10 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "baseUrl": "."
-  },
-  "exclude": ["node_modules", "dist", "test"]
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./test/*"]
+    }
+  }
 }

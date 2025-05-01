@@ -52,6 +52,7 @@ github-activity-box [options]
 | `DESCRIPTION`   | (Optional) Description for the gist                                                                      |
 | `EXCLUDE_REPO`  | (Optional) Comma-separated list of repositories to exclude <br> Example: `username/repo1,username/repo2` |
 | `EXCLUDE_OWNER` | (Optional) Comma-separated list of owners to exclude <br> Example: `username1,username2`                 |
+| `ACTIVITY_TYPE` | (Optional) Type of activities to display: `all` (default), `issue`, or `pr`                              |
 
 ### GitHub Action Setup
 

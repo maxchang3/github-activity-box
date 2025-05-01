@@ -1,6 +1,6 @@
 import { env } from '@/env'
 import { getIssues, getPRs } from '@/graphql'
-import type { IssueNode, PullRequestNode } from '@/schema'
+import type { IssueNode, PullRequestNode, SearchNode } from '@/schema'
 import { GistBox, MAX_LENGTH, MAX_LINES } from 'gist-box'
 
 const capitalize = <T extends string>(str: T) =>
@@ -23,13 +23,21 @@ const serializers = {
 }
 
 const getIssuesAndPRs = async (author: string) => {
-    const issues = await getIssues(author)
-    const PRs = await getPRs(author)
+    let issues: SearchNode[] = []
+    let PRs: SearchNode[] = []
 
-    const allNodes = [
-        ...issues.search.edges.map((e) => e.node),
-        ...PRs.search.edges.map((e) => e.node),
-    ]
+    const extractNode = (e: { node: SearchNode }) => e.node
+
+    // Fetch data based on ACTIVITY_TYPE
+    if (env.ACTIVITY_TYPE === 'all' || env.ACTIVITY_TYPE === 'issue') {
+        issues = (await getIssues(author)).search.edges.map(extractNode)
+    }
+
+    if (env.ACTIVITY_TYPE === 'all' || env.ACTIVITY_TYPE === 'pr') {
+        PRs = (await getPRs(author)).search.edges.map(extractNode)
+    }
+
+    const allNodes = [...issues, ...PRs]
         // Filter out excluded repos and owners
         .filter(
             (node) =>

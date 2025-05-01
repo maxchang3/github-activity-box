@@ -41,6 +41,7 @@ describe('activity-box', () => {
         mockedUpdate.mockClear()
         vi.stubEnv('EXCLUDE_REPO', '')
         vi.stubEnv('EXCLUDE_OWNER', '')
+        vi.stubEnv('ACTIVITY_TYPE', 'all')
     })
 
     const runAction = async () => {
@@ -68,6 +69,14 @@ describe('activity-box', () => {
         await runAction()
         expect(mockedUpdate).toHaveBeenCalledOnce()
         expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
+    })
+
+    it('should respect the `ACTIVITY_TYPE` filter', async () => {
+        vi.stubEnv('ACTIVITY_TYPE', 'issue')
+        await runAction()
+        expect(mockedUpdate).toHaveBeenCalledOnce()
+        expect(mockedUpdate.mock.calls[0][0]).toMatchSnapshot()
+        expect(mockedUpdate.mock.calls[0][0]).not.toContain('PR')
     })
 
     it('should handle failure to update the Gist', async () => {

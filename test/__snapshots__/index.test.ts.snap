@@ -7,6 +7,13 @@ exports[`activity-box > should exclude owners listed in \`EXCLUDE_OWNER\` 1`] = 
 }
 `;
 
+exports[`activity-box > should exclude repos and owners listed in \`EXCLUDE_REPO\` and \`EXCLUDE_OWNER\` 1`] = `
+{
+  "content": "",
+  "description": undefined,
+}
+`;
+
 exports[`activity-box > should exclude repos listed in \`EXCLUDE_REPO\` 1`] = `
 {
   "content": "🎉 Merged: PR #4 in clippy/take-over-github
@@ -19,6 +26,17 @@ exports[`activity-box > should exclude repos listed in \`EXCLUDE_REPO\` 1`] = `
 `;
 
 exports[`activity-box > should handle failure to update the Gist 1`] = `"Error getting or update the Gist: Error: 404"`;
+
+exports[`activity-box > should respect the \`ACTIVITY_TYPE\` filter 1`] = `
+{
+  "content": "❗️ Open: issue #35 in clippy/really-really-really-really-rea...
+❗️ Closed: issue #27 in clippy/take-over-github
+❗️ Open: issue #31 in clippy/take-over-github
+❗️ Open: issue #22 in clippy/really-really-really-really-rea...
+❗️ Closed: issue #15 in clippy/take-over-github",
+  "description": undefined,
+}
+`;
 
 exports[`activity-box > should update the Gist with the expected string 1`] = `
 {

@@ -12,13 +12,16 @@ const graphqlWithAuth = graphql.defaults({
 type IssueType = 'issue' | 'pr'
 
 /**
- * Executes a search query via GitHub's GraphQL API
+ * Searches GitHub issues or pull requests by author using the GraphQL API.
  *
- * *Pull requests are a type of issue.* —— About pull requests, GitHub Docs
- * @see https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#about-pull-requests
+ * GitHub treats pull requests as a type of issue, but GraphQL API requires
+ * separate queries for accurate results.
  *
- * Should use separate queries for issues and pull requests, or we will get empty results.
- * @see https://docs.github.com/en/graphql/reference/queries
+ * @note Mixing issues and pull requests in a single GraphQL query often returns empty results.
+ *
+ * @see https://docs.github.com/en/graphql/reference/queries - GitHub GraphQL reference
+ * @see https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#about-pull-requests - About pull requests
+ *
  */
 const searchIssues = async (author: string, type: IssueType): Promise<SearchResponse> => {
     const response = await graphqlWithAuth(SearchIssues, {

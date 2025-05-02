@@ -37,11 +37,7 @@ const SearchNodeSchema: z.ZodType<SearchNode> = z.discriminatedUnion('type', [
 
 export const SearchResponseSchema = z.object({
     search: z.object({
-        edges: z.array(
-            z.object({
-                node: SearchNodeSchema,
-            })
-        ),
+        nodes: z.array(SearchNodeSchema),
     }),
 })
 

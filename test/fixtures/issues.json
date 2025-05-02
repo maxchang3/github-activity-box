@@ -1,162 +1,142 @@
 [
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Feature Request] Add export to PDF functionality",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 35,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-25T17:23:51Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "[Feature Request] Add export to PDF functionality",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 35,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-25T17:23:51Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "Improve error handling for network failures",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 31,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-24T13:55:08Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "Improve error handling for network failures",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 31,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-24T13:55:08Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Bug] Memory leak in background process",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 27,
-      "issueState": "CLOSED",
-      "createdAt": "2025-04-23T10:29:42Z",
-      "closedAt": "2025-04-25T14:35:22Z"
-    }
+    "type": "Issue",
+    "title": "[Bug] Memory leak in background process",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 27,
+    "issueState": "CLOSED",
+    "createdAt": "2025-04-23T10:29:42Z",
+    "closedAt": "2025-04-25T14:35:22Z"
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "UI elements not aligning properly on mobile",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 22,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-22T16:38:14Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "UI elements not aligning properly on mobile",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 22,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-22T16:38:14Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Enhancement] Support for multiple profiles",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 18,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-21T08:45:23Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "[Enhancement] Support for multiple profiles",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 18,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-21T08:45:23Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "Performance issue with large datasets",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 15,
-      "issueState": "CLOSED",
-      "createdAt": "2025-04-20T14:02:55Z",
-      "closedAt": "2025-04-22T09:17:32Z"
-    }
+    "type": "Issue",
+    "title": "Performance issue with large datasets",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 15,
+    "issueState": "CLOSED",
+    "createdAt": "2025-04-20T14:02:55Z",
+    "closedAt": "2025-04-22T09:17:32Z"
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Security] Fix authentication vulnerability",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 10,
-      "issueState": "CLOSED",
-      "createdAt": "2025-04-19T09:17:30Z",
-      "closedAt": "2025-04-21T11:25:47Z"
-    }
+    "type": "Issue",
+    "title": "[Security] Fix authentication vulnerability",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 10,
+    "issueState": "CLOSED",
+    "createdAt": "2025-04-19T09:17:30Z",
+    "closedAt": "2025-04-21T11:25:47Z"
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "Documentation needs improvement",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 3,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-18T11:21:45Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "Documentation needs improvement",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 3,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-18T11:21:45Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Feature] Add dark mode support",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 2,
-      "issueState": "OPEN",
-      "createdAt": "2025-04-17T15:33:12Z",
-      "closedAt": null
-    }
+    "type": "Issue",
+    "title": "[Feature] Add dark mode support",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 2,
+    "issueState": "OPEN",
+    "createdAt": "2025-04-17T15:33:12Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "Issue",
-      "title": "[Bug] Application crashes on startup",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 1,
-      "issueState": "CLOSED",
-      "createdAt": "2025-04-16T19:03:05Z",
-      "closedAt": "2025-04-17T13:28:45Z"
-    }
+    "type": "Issue",
+    "title": "[Bug] Application crashes on startup",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 1,
+    "issueState": "CLOSED",
+    "createdAt": "2025-04-16T19:03:05Z",
+    "closedAt": "2025-04-17T13:28:45Z"
   }
 ]

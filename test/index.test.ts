@@ -23,14 +23,14 @@ vi.mock('@/graphql', async () => ({
     getIssues: vi.fn().mockResolvedValue(
         SearchResponseSchema.parse({
             search: {
-                edges: Issues,
+                nodes: Issues,
             },
         })
     ),
     getPRs: vi.fn().mockResolvedValue(
         SearchResponseSchema.parse({
             search: {
-                edges: PRs,
+                nodes: PRs,
             },
         })
     ),

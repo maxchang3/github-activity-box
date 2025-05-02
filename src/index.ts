@@ -26,15 +26,13 @@ const getIssuesAndPRs = async (author: string) => {
     let issues: SearchNode[] = []
     let PRs: SearchNode[] = []
 
-    const extractNode = (e: { node: SearchNode }) => e.node
-
     // Fetch data based on ACTIVITY_TYPE
     if (env.ACTIVITY_TYPE === 'all' || env.ACTIVITY_TYPE === 'issue') {
-        issues = (await getIssues(author)).search.edges.map(extractNode)
+        issues = (await getIssues(author)).search.nodes
     }
 
     if (env.ACTIVITY_TYPE === 'all' || env.ACTIVITY_TYPE === 'pr') {
-        PRs = (await getPRs(author)).search.edges.map(extractNode)
+        PRs = (await getPRs(author)).search.nodes
     }
 
     const allNodes = [...issues, ...PRs]

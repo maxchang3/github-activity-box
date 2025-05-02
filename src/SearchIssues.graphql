@@ -1,35 +1,33 @@
 query SearchIssues($first: Int = 20, $searchQuery: String!) {
   search(first: $first, type: ISSUE, query: $searchQuery) {
-    edges {
-      node {
-        ... on PullRequest {
-          type: __typename
-          title
-          repo: repository {
-            name: nameWithOwner
-            owner: owner {
-              login
-            }
+    nodes {
+      ... on PullRequest {
+        type: __typename
+        title
+        repo: repository {
+          name: nameWithOwner
+          owner: owner {
+            login
           }
-          number
-          prState: state
-          closedAt
-          createdAt
         }
-        ... on Issue {
-          type: __typename
-          title
-          repo: repository {
-            name: nameWithOwner
-            owner: owner {
-              login
-            }
+        number
+        prState: state
+        closedAt
+        createdAt
+      }
+      ... on Issue {
+        type: __typename
+        title
+        repo: repository {
+          name: nameWithOwner
+          owner: owner {
+            login
           }
-          number
-          issueState: state
-          closedAt
-          createdAt
         }
+        number
+        issueState: state
+        closedAt
+        createdAt
       }
     }
   }

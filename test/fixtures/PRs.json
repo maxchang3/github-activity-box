@@ -1,178 +1,156 @@
 [
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Should be filtered out",
-      "repo": {
-        "name": "clippy/should-be-filtered",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 50,
-      "prState": "OPEN",
-      "createdAt": "2025-04-25T13:44:56Z",
-      "closedAt": null
-    }
+    "type": "PullRequest",
+    "title": "Should be filtered out",
+    "repo": {
+      "name": "clippy/should-be-filtered",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 50,
+    "prState": "OPEN",
+    "createdAt": "2025-04-25T13:44:56Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Fix security vulnerabilities in third-party libraries",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 38,
-      "prState": "OPEN",
-      "createdAt": "2025-04-25T13:44:56Z",
-      "closedAt": null
-    }
+    "type": "PullRequest",
+    "title": "Fix security vulnerabilities in third-party libraries",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 38,
+    "prState": "OPEN",
+    "createdAt": "2025-04-25T13:44:56Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Implement new UI design for dashboard",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 32,
-      "prState": "MERGED",
-      "createdAt": "2025-04-24T08:19:24Z",
-      "closedAt": "2025-04-26T10:34:18Z"
-    }
+    "type": "PullRequest",
+    "title": "Implement new UI design for dashboard",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 32,
+    "prState": "MERGED",
+    "createdAt": "2025-04-24T08:19:24Z",
+    "closedAt": "2025-04-26T10:34:18Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Add internationalization support",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 30,
-      "prState": "CLOSED",
-      "createdAt": "2025-04-23T15:51:42Z",
-      "closedAt": "2025-04-25T09:27:33Z"
-    }
+    "type": "PullRequest",
+    "title": "Add internationalization support",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 30,
+    "prState": "CLOSED",
+    "createdAt": "2025-04-23T15:51:42Z",
+    "closedAt": "2025-04-25T09:27:33Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Optimize database queries for faster response times",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 26,
-      "prState": "CLOSED",
-      "createdAt": "2025-04-22T11:37:09Z",
-      "closedAt": "2025-04-24T16:42:57Z"
-    }
+    "type": "PullRequest",
+    "title": "Optimize database queries for faster response times",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 26,
+    "prState": "CLOSED",
+    "createdAt": "2025-04-22T11:37:09Z",
+    "closedAt": "2025-04-24T16:42:57Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Add unit tests for core functionality",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 21,
-      "prState": "MERGED",
-      "createdAt": "2025-04-21T14:22:18Z",
-      "closedAt": "2025-04-22T17:31:05Z"
-    }
+    "type": "PullRequest",
+    "title": "Add unit tests for core functionality",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 21,
+    "prState": "MERGED",
+    "createdAt": "2025-04-21T14:22:18Z",
+    "closedAt": "2025-04-22T17:31:05Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Implement accessibility improvements",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 17,
-      "prState": "OPEN",
-      "createdAt": "2025-04-20T09:45:33Z",
-      "closedAt": null
-    }
+    "type": "PullRequest",
+    "title": "Implement accessibility improvements",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 17,
+    "prState": "OPEN",
+    "createdAt": "2025-04-20T09:45:33Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Update dependencies to latest versions",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 12,
-      "prState": "MERGED",
-      "createdAt": "2025-04-19T18:33:27Z",
-      "closedAt": "2025-04-20T08:15:42Z"
-    }
+    "type": "PullRequest",
+    "title": "Update dependencies to latest versions",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 12,
+    "prState": "MERGED",
+    "createdAt": "2025-04-19T18:33:27Z",
+    "closedAt": "2025-04-20T08:15:42Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Refactor codebase for better readability",
-      "repo": {
-        "name": "clippy/really-really-really-really-really-really-really-really-really-long",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 7,
-      "prState": "CLOSED",
-      "createdAt": "2025-04-18T07:12:49Z",
-      "closedAt": "2025-04-19T15:47:23Z"
-    }
+    "type": "PullRequest",
+    "title": "Refactor codebase for better readability",
+    "repo": {
+      "name": "clippy/really-really-really-really-really-really-really-really-really-long",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 7,
+    "prState": "CLOSED",
+    "createdAt": "2025-04-18T07:12:49Z",
+    "closedAt": "2025-04-19T15:47:23Z"
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Fix critical bug in authentication module",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 5,
-      "prState": "OPEN",
-      "createdAt": "2025-04-17T12:52:45Z",
-      "closedAt": null
-    }
+    "type": "PullRequest",
+    "title": "Fix critical bug in authentication module",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 5,
+    "prState": "OPEN",
+    "createdAt": "2025-04-17T12:52:45Z",
+    "closedAt": null
   },
   {
-    "node": {
-      "type": "PullRequest",
-      "title": "Add new feature to improve performance",
-      "repo": {
-        "name": "clippy/take-over-github",
-        "owner": {
-          "login": "clippy"
-        }
-      },
-      "number": 4,
-      "prState": "MERGED",
-      "createdAt": "2025-04-16T16:46:11Z",
-      "closedAt": "2025-04-30T09:28:35Z"
-    }
+    "type": "PullRequest",
+    "title": "Add new feature to improve performance",
+    "repo": {
+      "name": "clippy/take-over-github",
+      "owner": {
+        "login": "clippy"
+      }
+    },
+    "number": 4,
+    "prState": "MERGED",
+    "createdAt": "2025-04-16T16:46:11Z",
+    "closedAt": "2025-04-30T09:28:35Z"
   }
 ]
